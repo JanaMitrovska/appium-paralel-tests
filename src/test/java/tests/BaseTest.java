@@ -1,9 +1,12 @@
 package tests;
 
+import contactsSteps.Steps;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 import java.io.IOException;
 import java.net.URL;
+
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,19 +15,20 @@ import utilities.DesiredCapabilitiesUtil;
 import utilities.ThreadLocalDriver;
 
 public class BaseTest {
-    public AndroidDriver<MobileElement> driver;
+    public AppiumDriver<MobileElement> driver;
     private final ThreadLocalDriver threadLocalDriver = new ThreadLocalDriver();
     private final DesiredCapabilitiesUtil desiredCapabilitiesUtil = new DesiredCapabilitiesUtil();
 
-    protected contactsSteps.Steps contactsSteps;
+    protected Steps steps;
 
     @BeforeMethod
-    @Parameters({ "udid", "platformVersion" })
-    public void setup(String udid, String platformVersion) throws IOException {
-        DesiredCapabilities caps = desiredCapabilitiesUtil.getDesiredCapabilities(udid, platformVersion);
-        threadLocalDriver.setTLDriver(new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4444/wd/hub"), caps));
+    @Parameters({ "udid", "platformVersion", "platformName", "deviceName"})
+    public void setup(String udid, String platformVersion, String platformName, String deviceName) throws IOException, InterruptedException {
+        DesiredCapabilities caps = desiredCapabilitiesUtil.getDesiredCapabilities(udid, platformVersion, platformName, deviceName);
+        threadLocalDriver.setTLDriver(new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:4444/wd/hub"), caps));
         driver = threadLocalDriver.getTLDriver();
-        contactsSteps = new contactsSteps.Steps(driver);
+        steps = new Steps(driver);
+        //Thread.sleep(5000);
     }
 
     @AfterMethod
