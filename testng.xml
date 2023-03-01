@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Android-Test-Suite" parallel="tests" thread-count="2">
+<suite name="Parallel-Test-Suite" parallel="tests" thread-count="2">
 
-    <test name="emulator-5554">
+    <test name="Pixel 2">
         <parameter name="udid" value="emulator-5554"/>
-        <parameter name="deviceName" value="Pixel 2 API 30"></parameter>
+        <parameter name="deviceName" value="Pixel 2 API 30"/>
         <parameter name="platformVersion" value="11.0"/>
-        <parameter name="platformName" value="Android"></parameter>
+        <parameter name="platformName" value="Android"/>
         <classes>
             <class name="tests.Contacts.ContactsTests"/>
         </classes>
     </test>
-
 
     <test name="iPhone 12 Pro">
         <parameter name="udid" value="289CFE2A-267A-480F-B638-305338F3D064"/>
-        <parameter name="deviceName" value="iPhone 12 Pro"></parameter>
+        <parameter name="deviceName" value="iPhone 12 Pro"/>
         <parameter name="platformVersion" value="16.2"/>
-        <parameter name="platformName" value="iOS"></parameter>
+        <parameter name="platformName" value="iOS"/>
         <classes>
             <class name="tests.Contacts.ContactsTests"/>
         </classes>
     </test>
-
-
-
-
 </suite>

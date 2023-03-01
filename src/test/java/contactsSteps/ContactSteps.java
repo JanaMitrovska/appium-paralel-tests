@@ -10,32 +10,32 @@ public class ContactSteps extends BaseSteps{
     }
 
     public ContactSteps createContactSteps() {
-        contactsPage.clickAddContactButton();
-        contactsPage.enterName();
-        contactsPage.enterLastName();
-        contactsPage.clickSaveBtn();
+        contactsListPage.clickAddContactButton();
+        createContactPage.enterName();
+        createContactPage.enterLastName();
+        createContactPage.clickSaveBtn();
         return this;
     }
 
     public ContactSteps editContactSteps(){
-        contactsPage.clickContact();
-        contactsPage.clickEditButton();
-        contactsPage.modifyLastName();
-        contactsPage.clickSaveBtn();
+        contactsListPage.clickContact();
+        editContactPage.clickEditButton();
+        editContactPage.modifyLastName();
+        editContactPage.clickSaveBtn();
         return this;
     }
 
     public ContactSteps searchForContactSteps(){
-        contactsPage.clickSearchButton();
-        contactsPage.enterSearchName();
+        contactsListPage.clickSearchButton();
+        contactsListPage.enterSearchName();
         return this;
     }
 
     public ContactSteps deleteContactSteps(){
-        contactsPage.clickContact();
-        contactsPage.clickMoreOptionsButton();
-        contactsPage.clickDeleteButton();
-        contactsPage.clickConfirmDeleteButton();
+        editContactPage.clickContact();
+        editContactPage.clickMoreOptionsButton();
+        editContactPage.clickDeleteButton();
+        editContactPage.clickConfirmDeleteButton();
         return this;
     }
 

@@ -15,16 +15,18 @@ public class DesiredCapabilitiesUtil {
         if(platformName.equals("iOS")){
             desiredCapabilities.setCapability("automationName", "XCUITest");
             desiredCapabilities.setCapability("bundleId", "com.apple.MobileAddressBook");
-            desiredCapabilities.setCapability("xcodeOrgId", "jana.mitrovska@gmail.com");
-            desiredCapabilities.setCapability("xcodeSigningId", "Apple Development");
+            //desiredCapabilities.setCapability("xcodeOrgId", "jana.mitrovska@gmail.com");
+            //desiredCapabilities.setCapability("xcodeSigningId", "Apple Development");
         } else if(platformName.equals("Android")){
-            desiredCapabilities.setCapability("skipUnlock", true);
             desiredCapabilities.setCapability("appPackage", "com.android.contacts");
             desiredCapabilities.setCapability("appActivity", "com.android.contacts.activities.PeopleActivity");
         }
         return desiredCapabilities;
     }
 }
+
+
+
 
 
 

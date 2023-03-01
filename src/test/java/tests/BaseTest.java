@@ -28,7 +28,7 @@ public class BaseTest {
         threadLocalDriver.setTLDriver(new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:4444/wd/hub"), caps));
         driver = threadLocalDriver.getTLDriver();
         steps = new Steps(driver);
-        //Thread.sleep(5000);
+        Thread.sleep(5000);
     }
 
     @AfterMethod
